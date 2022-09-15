@@ -7,7 +7,7 @@ export const Githubcontext = createContext();
 const GITHUB_URL = process.env.REACT_APP_GITHUB_URL;
 const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
 
-axios.defaults.headers.common["Authorization"] = `token ${GITHUB_TOKEN}`;
+axios.defaults.headers.common["Authorization"] = `Baerer ${GITHUB_TOKEN}`;
 
 const initialState = {
   users: [],
