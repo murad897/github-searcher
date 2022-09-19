@@ -126,7 +126,7 @@ const User = () => {
                 <div className="stat-figure text-secondary">
                   <FaUsers className="text-3xl text-rose-500 w-full" />
                 </div>
-                <div className="stat-title ">Followers</div>
+                <div className="stat-title">Followers</div>
                 <div className="stat-value text-3xlmd: text-4xl">
                   {followers}
                 </div>
