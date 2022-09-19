@@ -8,3 +8,9 @@ body {
   background: #2c394b;
   font-family: "Mulish", sans-serif;
 }
+
+@layer base {
+  a {
+    @apply text-white;
+  }
+}

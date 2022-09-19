@@ -12,6 +12,7 @@ axios.defaults.headers.common["Authorization"] = `Baerer ${GITHUB_TOKEN}`;
 const initialState = {
   users: [],
   user: {},
+  repos: [],
   loading: true,
 };
 
@@ -53,12 +54,24 @@ export const GithubContext = ({ children }) => {
     }
   };
 
+  const getUserRepos = async (login) => {
+    const params = new URLSearchParams({ sort: "created", per_page: 10 });
+    try {
+      const response = await axios.get(
+        `${GITHUB_URL}/users/${login}/repos?${params}`
+      );
+      const data = await response.data;
+      dispatch({ type: "GET_REPOS", payload: data });
+    } catch (error) {
+      alert(error);
+    }
+  };
+
   return (
     <Githubcontext.Provider
       value={{
-        users: state.users,
-        loading: state.loading,
-        user: state.user,
+        ...state,
+        getUserRepos,
         fetchUsers,
         getUser,
         searchUsers,
